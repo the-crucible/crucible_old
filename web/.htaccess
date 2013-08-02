@@ -1,0 +1,13 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine on
+    # This will just transfer the control to
+    # the frontend controller in webroot dir
+    #
+    # Important : You need to change this rule 
+    # if you are changing the webroot dir.
+    # RewriteRule    ^$    web/  [L]
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule    ^(.*)$ index.php/$1 [L]
+
+ </IfModule>
